@@ -9,21 +9,7 @@
 /* Begin PBXBuildFile section */
 		BE443218251AF40C00D616A3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE443217251AF40C00D616A3 /* main.swift */; };
 		BE443222251AF4E600D616A3 /* PhotoProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = BE443221251AF4E600D616A3 /* PhotoProxy.m */; };
-		BE443224251AF5CC00D616A3 /* Info.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = BE44321F251AF4BB00D616A3 /* Info.plist */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		BE443212251AF40C00D616A3 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 12;
-			dstPath = "";
-			dstSubfolderSpec = 16;
-			files = (
-				BE443224251AF5CC00D616A3 /* Info.plist in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		BE443214251AF40C00D616A3 /* photohack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = photohack; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,7 +68,6 @@
 			buildPhases = (
 				BE443210251AF40C00D616A3 /* Sources */,
 				BE443211251AF40C00D616A3 /* Frameworks */,
-				BE443212251AF40C00D616A3 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -258,7 +243,8 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/photohack/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -278,7 +264,8 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/photohack/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
