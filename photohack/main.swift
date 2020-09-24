@@ -1,8 +1,9 @@
 import Foundation
+
 import Photos
 
 if CommandLine.arguments.count < 3 {
-    print("usage: photoproxy [photoslib] [UUID]...")
+    print("usage: photoproxy <*.photoslibrary> <UUID>...")
     exit(1)
 }
 
@@ -21,7 +22,8 @@ do {
     let url = URL.init(fileURLWithPath: "Info.plist", relativeTo: b.resourceURL)
     try plist.write(to: url)
 } catch {
-    print(error)
+    print("Failed to extract plist \(error)")
+    exit(2)
 }
 
 let sem = DispatchSemaphore(value: 0);
@@ -38,7 +40,12 @@ sem.wait();
 
 //print(PhotoProxy.entityToClass() as AnyObject)
 
-let proxy = PhotoProxy.fromPath(CommandLine.arguments[1])!
-let uuids = CommandLine.arguments.dropFirst(2).map { UUID(uuidString: $0)! };
+let dbPath = CommandLine.arguments[1]
+let proxy = PhotoProxy.fromPath(dbPath)
+if proxy == nil {
+    print("Failed to load photos library: \(dbPath)")
+    exit(2)
+}
 
-proxy.dumpAdjustments(uuids)
+let uuids = CommandLine.arguments.dropFirst(2).map { UUID(uuidString: $0)! };
+proxy!.dumpAdjustments(uuids)

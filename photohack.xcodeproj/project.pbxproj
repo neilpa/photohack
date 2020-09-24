@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BE443218251AF40C00D616A3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE443217251AF40C00D616A3 /* main.swift */; };
-		BE443222251AF4E600D616A3 /* PhotoProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = BE443221251AF4E600D616A3 /* PhotoProxy.m */; };
+		BEA22EFB251C148300F44A6C /* PhotoProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = BE443221251AF4E600D616A3 /* PhotoProxy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,7 +118,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE443218251AF40C00D616A3 /* main.swift in Sources */,
-				BE443222251AF4E600D616A3 /* PhotoProxy.m in Sources */,
+				BEA22EFB251C148300F44A6C /* PhotoProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
