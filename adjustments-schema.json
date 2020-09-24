@@ -1,0 +1,1857 @@
+{
+  "apertureRedEye" : {
+    "enabled" : {
+      "attributes" : {
+        "default" : false
+      },
+      "type" : "bool"
+    },
+    "inputCorrectionInfo" : {
+      "attributes" : {
+        "required" : false
+      },
+      "content" : {
+        "properties" : {
+          "pointX" : {
+            "max" : 999999999,
+            "min" : -999999999,
+            "type" : "number"
+          },
+          "pointY" : {
+            "max" : 999999999,
+            "min" : -999999999,
+            "type" : "number"
+          },
+          "radius" : {
+            "max" : 999999999,
+            "min" : 0,
+            "type" : "number"
+          },
+          "sensitivity" : {
+            "max" : 1,
+            "min" : 0,
+            "type" : "number"
+          }
+        },
+        "type" : "array"
+      },
+      "type" : "array"
+    }
+  },
+  "autoLoop" : {
+    "enabled" : {
+      "attributes" : {
+        "default" : false
+      },
+      "type" : "bool"
+    },
+    "flavor" : {
+      "attributes" : {
+        "default" : "AutoLoop"
+      },
+      "type" : "enum",
+      "values" : [
+        "AutoLoop",
+        "Mirror",
+        "LongExposure"
+      ]
+    },
+    "recipe" : {
+      "type" : "opaque"
+    }
+  },
+  "cropStraighten" : {
+    "angle" : {
+      "attributes" : {
+        "default" : 0
+      },
+      "max" : 45,
+      "min" : -45,
+      "type" : "number"
+    },
+    "auto" : {
+      "attributes" : {
+        "required" : false
+      },
+      "type" : "bool"
+    },
+    "constraintHeight" : {
+      "attributes" : {
+        "required" : false
+      },
+      "max" : 999999999,
+      "min" : 0,
+      "type" : "number"
+    },
+    "constraintWidth" : {
+      "attributes" : {
+        "required" : false
+      },
+      "max" : 999999999,
+      "min" : 0,
+      "type" : "number"
+    },
+    "enabled" : {
+      "attributes" : {
+        "default" : false
+      },
+      "type" : "bool"
+    },
+    "height" : {
+      "attributes" : {
+        "default" : 0
+      },
+      "max" : 999999999,
+      "min" : -999999999,
+      "type" : "number"
+    },
+    "originalCrop" : {
+      "attributes" : {
+        "default" : false,
+        "required" : false
+      },
+      "type" : "bool"
+    },
+    "pitch" : {
+      "attributes" : {
+        "default" : 0,
+        "required" : false
+      },
+      "max" : 30,
+      "min" : -30,
+      "type" : "number"
+    },
+    "smart" : {
+      "attributes" : {
+        "default" : false,
+        "required" : false
+      },
+      "type" : "bool"
+    },
+    "width" : {
+      "attributes" : {
+        "default" : 0
+      },
+      "max" : 999999999,
+      "min" : -999999999,
+      "type" : "number"
+    },
+    "xOrigin" : {
+      "attributes" : {
+        "default" : 0
+      },
+      "max" : 999999999,
+      "min" : -999999999,
+      "type" : "number"
+    },
+    "yaw" : {
+      "attributes" : {
+        "default" : 0,
+        "required" : false
+      },
+      "max" : 30,
+      "min" : -30,
+      "type" : "number"
+    },
+    "yOrigin" : {
+      "attributes" : {
+        "default" : 0
+      },
+      "max" : 999999999,
+      "min" : -999999999,
+      "type" : "number"
+    }
+  },
+  "curves" : {
+    "auto" : {
+      "attributes" : {
+        "required" : false
+      },
+      "type" : "bool"
+    },
+    "enabled" : {
+      "attributes" : {
+        "default" : false
+      },
+      "type" : "bool"
+    },
+    "pointsB" : {
+      "content" : {
+        "properties" : {
+          "editable" : {
+            "type" : "bool"
+          },
+          "x" : {
+            "max" : 2,
+            "min" : 0,
+            "type" : "number"
+          },
+          "y" : {
+            "max" : 2,
+            "min" : 0,
+            "type" : "number"
+          }
+        },
+        "type" : "array"
+      },
+      "type" : "array"
+    },
+    "pointsG" : {
+      "content" : {
+        "properties" : {
+          "editable" : {
+            "type" : "bool"
+          },
+          "x" : {
+            "max" : 2,
+            "min" : 0,
+            "type" : "number"
+          },
+          "y" : {
+            "max" : 2,
+            "min" : 0,
+            "type" : "number"
+          }
+        },
+        "type" : "array"
+      },
+      "type" : "array"
+    },
+    "pointsL" : {
+      "content" : {
+        "properties" : {
+          "editable" : {
+            "type" : "bool"
+          },
+          "x" : {
+            "max" : 2,
+            "min" : 0,
+            "type" : "number"
+          },
+          "y" : {
+            "max" : 2,
+            "min" : 0,
+            "type" : "number"
+          }
+        },
+        "type" : "array"
+      },
+      "type" : "array"
+    },
+    "pointsR" : {
+      "content" : {
+        "properties" : {
+          "editable" : {
+            "type" : "bool"
+          },
+          "x" : {
+            "max" : 2,
+            "min" : 0,
+            "type" : "number"
+          },
+          "y" : {
+            "max" : 2,
+            "min" : 0,
+            "type" : "number"
+          }
+        },
+        "type" : "array"
+      },
+      "type" : "array"
+    }
+  },
+  "definition" : {
+    "auto" : {
+      "attributes" : {
+        "required" : false
+      },
+      "type" : "bool"
+    },
+    "enabled" : {
+      "attributes" : {
+        "default" : false
+      },
+      "type" : "bool"
+    },
+    "intensity" : {
+      "attributes" : {
+        "default" : 0
+      },
+      "max" : 2,
+      "min" : 0,
+      "type" : "number"
+    }
+  },
+  "depthEffect" : {
+    "aperture" : {
+      "attributes" : {
+        "required" : false
+      },
+      "max" : 22,
+      "min" : 0.80000000000000004,
+      "type" : "number"
+    },
+    "depthInfo" : {
+      "type" : "opaque"
+    },
+    "enabled" : {
+      "attributes" : {
+        "default" : false
+      },
+      "type" : "bool"
+    }
+  },
+  "effect" : {
+    "enabled" : {
+      "attributes" : {
+        "default" : false
+      },
+      "type" : "bool"
+    },
+    "intensity" : {
+      "attributes" : {
+        "default" : 1,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "kind" : {
+      "attributes" : {
+        "default" : "Mono"
+      },
+      "type" : "enum",
+      "values" : [
+        "Mono",
+        "Tonal",
+        "Noir",
+        "Fade",
+        "Chrome",
+        "Process",
+        "Transfer",
+        "Instant"
+      ]
+    },
+    "version" : {
+      "attributes" : {
+        "required" : false
+      },
+      "max" : 2,
+      "min" : 0,
+      "type" : "number"
+    }
+  },
+  "effect3D" : {
+    "enabled" : {
+      "attributes" : {
+        "default" : false
+      },
+      "type" : "bool"
+    },
+    "intensity" : {
+      "attributes" : {
+        "default" : 1,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "kind" : {
+      "attributes" : {
+        "default" : "3DVivid"
+      },
+      "type" : "enum",
+      "values" : [
+        "3DVivid",
+        "3DVividWarm",
+        "3DVividCool",
+        "3DDramatic",
+        "3DDramaticWarm",
+        "3DDramaticCool",
+        "3DSilverplate",
+        "3DNoir"
+      ]
+    },
+    "version" : {
+      "attributes" : {
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    }
+  },
+  "grain" : {
+    "amount" : {
+      "attributes" : {
+        "default" : 0
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "enabled" : {
+      "attributes" : {
+        "default" : false
+      },
+      "type" : "bool"
+    },
+    "iso" : {
+      "attributes" : {
+        "default" : 800
+      },
+      "max" : 3200,
+      "min" : 10,
+      "type" : "number"
+    },
+    "seed" : {
+      "attributes" : {
+        "default" : 0,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    }
+  },
+  "highResFusion" : {
+    "alignment" : {
+      "type" : "opaque"
+    },
+    "enabled" : {
+      "attributes" : {
+        "default" : false
+      },
+      "type" : "bool"
+    }
+  },
+  "levels" : {
+    "auto" : {
+      "attributes" : {
+        "required" : false
+      },
+      "type" : "bool"
+    },
+    "blackDstBlue" : {
+      "attributes" : {
+        "default" : 0,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "blackDstGreen" : {
+      "attributes" : {
+        "default" : 0,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "blackDstRed" : {
+      "attributes" : {
+        "default" : 0,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "blackDstRGB" : {
+      "attributes" : {
+        "default" : 0,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "blackSrcBlue" : {
+      "attributes" : {
+        "default" : 0,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "blackSrcGreen" : {
+      "attributes" : {
+        "default" : 0,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "blackSrcRed" : {
+      "attributes" : {
+        "default" : 0,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "blackSrcRGB" : {
+      "attributes" : {
+        "default" : 0,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "colorSpace" : {
+      "attributes" : {
+        "default" : "Display P3",
+        "required" : false
+      },
+      "type" : "enum",
+      "values" : [
+        "Adobe RGB",
+        "sRGB",
+        "Display P3"
+      ]
+    },
+    "enabled" : {
+      "attributes" : {
+        "default" : false
+      },
+      "type" : "bool"
+    },
+    "hilightDstBlue" : {
+      "attributes" : {
+        "default" : 0.75,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "hilightDstGreen" : {
+      "attributes" : {
+        "default" : 0.75,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "hilightDstRed" : {
+      "attributes" : {
+        "default" : 0.75,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "hilightDstRGB" : {
+      "attributes" : {
+        "default" : 0.75,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "hilightSrcBlue" : {
+      "attributes" : {
+        "default" : 0.75,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "hilightSrcGreen" : {
+      "attributes" : {
+        "default" : 0.75,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "hilightSrcRed" : {
+      "attributes" : {
+        "default" : 0.75,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "hilightSrcRGB" : {
+      "attributes" : {
+        "default" : 0.75,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "midDstBlue" : {
+      "attributes" : {
+        "default" : 0.5,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "midDstGreen" : {
+      "attributes" : {
+        "default" : 0.5,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "midDstRed" : {
+      "attributes" : {
+        "default" : 0.5,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "midDstRGB" : {
+      "attributes" : {
+        "default" : 0.5,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "midSrcBlue" : {
+      "attributes" : {
+        "default" : 0.5,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "midSrcGreen" : {
+      "attributes" : {
+        "default" : 0.5,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "midSrcRed" : {
+      "attributes" : {
+        "default" : 0.5,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "midSrcRGB" : {
+      "attributes" : {
+        "default" : 0.5,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "shadowDstBlue" : {
+      "attributes" : {
+        "default" : 0.25,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "shadowDstGreen" : {
+      "attributes" : {
+        "default" : 0.25,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "shadowDstRed" : {
+      "attributes" : {
+        "default" : 0.25,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "shadowDstRGB" : {
+      "attributes" : {
+        "default" : 0.25,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "shadowSrcBlue" : {
+      "attributes" : {
+        "default" : 0.25,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "shadowSrcGreen" : {
+      "attributes" : {
+        "default" : 0.25,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "shadowSrcRed" : {
+      "attributes" : {
+        "default" : 0.25,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "shadowSrcRGB" : {
+      "attributes" : {
+        "default" : 0.25,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "whiteDstBlue" : {
+      "attributes" : {
+        "default" : 1,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "whiteDstGreen" : {
+      "attributes" : {
+        "default" : 1,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "whiteDstRed" : {
+      "attributes" : {
+        "default" : 1,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "whiteDstRGB" : {
+      "attributes" : {
+        "default" : 1,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "whiteSrcBlue" : {
+      "attributes" : {
+        "default" : 1,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "whiteSrcGreen" : {
+      "attributes" : {
+        "default" : 1,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "whiteSrcRed" : {
+      "attributes" : {
+        "default" : 1,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "whiteSrcRGB" : {
+      "attributes" : {
+        "default" : 1,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    }
+  },
+  "livePhotoKeyFrame" : {
+    "scale" : {
+      "attributes" : {
+        "default" : 1
+      },
+      "max" : 2147483647,
+      "min" : 1,
+      "type" : "number"
+    },
+    "time" : {
+      "max" : 9223372036854775807,
+      "min" : 0,
+      "type" : "number"
+    }
+  },
+  "mute" : {
+    "enabled" : {
+      "attributes" : {
+        "default" : false
+      },
+      "type" : "bool"
+    }
+  },
+  "noiseReduction" : {
+    "auto" : {
+      "attributes" : {
+        "required" : false
+      },
+      "type" : "bool"
+    },
+    "edgeDetail" : {
+      "attributes" : {
+        "default" : 1.5,
+        "required" : false
+      },
+      "max" : 6,
+      "min" : 0,
+      "type" : "number"
+    },
+    "enabled" : {
+      "attributes" : {
+        "default" : false
+      },
+      "type" : "bool"
+    },
+    "radius" : {
+      "attributes" : {
+        "default" : 1
+      },
+      "max" : 10,
+      "min" : 0,
+      "type" : "number"
+    }
+  },
+  "orientation" : {
+    "value" : {
+      "attributes" : {
+        "default" : 1
+      },
+      "max" : 8,
+      "min" : 1,
+      "type" : "number"
+    }
+  },
+  "portraitEffect" : {
+    "enabled" : {
+      "attributes" : {
+        "default" : false
+      },
+      "type" : "bool"
+    },
+    "kind" : {
+      "attributes" : {
+        "default" : "Light"
+      },
+      "type" : "enum",
+      "values" : [
+        "Light",
+        "Commercial",
+        "Contour",
+        "Black",
+        "BlackoutMono",
+        "StudioV2",
+        "ContourV2",
+        "StageV2",
+        "StageMonoV2",
+        "StageWhite"
+      ]
+    },
+    "portraitInfo" : {
+      "type" : "opaque"
+    },
+    "strength" : {
+      "attributes" : {
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "version" : {
+      "attributes" : {
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    }
+  },
+  "raw" : {
+    "inputDecoderVersion" : {
+      "type" : "opaque"
+    },
+    "inputSushiLevel" : {
+      "attributes" : {
+        "required" : false
+      },
+      "type" : "opaque"
+    }
+  },
+  "rawNoiseReduction" : {
+    "auto" : {
+      "attributes" : {
+        "required" : false
+      },
+      "type" : "bool"
+    },
+    "color" : {
+      "attributes" : {
+        "default" : 0
+      },
+      "max" : 1,
+      "min" : -1,
+      "type" : "number"
+    },
+    "contrast" : {
+      "attributes" : {
+        "default" : 0,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "detail" : {
+      "attributes" : {
+        "default" : 0
+      },
+      "max" : 3,
+      "min" : 0,
+      "type" : "number"
+    },
+    "enabled" : {
+      "attributes" : {
+        "default" : false
+      },
+      "type" : "bool"
+    },
+    "luminance" : {
+      "attributes" : {
+        "default" : 0
+      },
+      "max" : 1,
+      "min" : -0.10000000000000001,
+      "type" : "number"
+    },
+    "sharpness" : {
+      "attributes" : {
+        "default" : 0,
+        "required" : false
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    }
+  },
+  "redEye" : {
+    "auto" : {
+      "attributes" : {
+        "required" : false
+      },
+      "type" : "bool"
+    },
+    "enabled" : {
+      "attributes" : {
+        "default" : false
+      },
+      "type" : "bool"
+    },
+    "inputCorrectionInfo" : {
+      "attributes" : {
+        "required" : false
+      },
+      "type" : "opaque"
+    },
+    "iPhone" : {
+      "attributes" : {
+        "required" : false
+      },
+      "type" : "bool"
+    }
+  },
+  "retouch" : {
+    "enabled" : {
+      "attributes" : {
+        "default" : false
+      },
+      "type" : "bool"
+    },
+    "inputStrokes" : {
+      "attributes" : {
+        "required" : false
+      },
+      "content" : {
+        "properties" : {
+          "mode" : {
+            "type" : "enum",
+            "values" : [
+              "Repair"
+            ]
+          },
+          "opacity" : {
+            "max" : 1,
+            "min" : 0,
+            "type" : "number"
+          },
+          "points" : {
+            "content" : {
+              "properties" : {
+                "pressure" : {
+                  "attributes" : {
+                    "required" : false
+                  },
+                  "max" : 1,
+                  "min" : 0,
+                  "type" : "number"
+                },
+                "x" : {
+                  "max" : 9223372036854775807,
+                  "min" : -9223372036854775808,
+                  "type" : "number"
+                },
+                "y" : {
+                  "max" : 9223372036854775807,
+                  "min" : -9223372036854775808,
+                  "type" : "number"
+                }
+              },
+              "type" : "array"
+            },
+            "type" : "array"
+          },
+          "radius" : {
+            "max" : 4000,
+            "min" : 0,
+            "type" : "number"
+          },
+          "repairEdges" : {
+            "attributes" : {
+              "default" : false,
+              "required" : false
+            },
+            "type" : "bool"
+          },
+          "softness" : {
+            "max" : 1,
+            "min" : 0,
+            "type" : "number"
+          },
+          "sourceOffset" : {
+            "properties" : {
+              "x" : {
+                "max" : 9223372036854775807,
+                "min" : -9223372036854775808,
+                "type" : "number"
+              },
+              "y" : {
+                "max" : 9223372036854775807,
+                "min" : -9223372036854775808,
+                "type" : "number"
+              }
+            },
+            "type" : "array"
+          },
+          "version" : {
+            "max" : 10000,
+            "min" : 1,
+            "type" : "number"
+          }
+        },
+        "type" : "array"
+      },
+      "type" : "array"
+    }
+  },
+  "selectiveColor" : {
+    "corrections" : {
+      "content" : {
+        "properties" : {
+          "blue" : {
+            "attributes" : {
+              "required" : true
+            },
+            "max" : 1,
+            "min" : 0,
+            "type" : "number"
+          },
+          "green" : {
+            "attributes" : {
+              "required" : true
+            },
+            "max" : 1,
+            "min" : 0,
+            "type" : "number"
+          },
+          "hueShift" : {
+            "attributes" : {
+              "default" : 0,
+              "required" : true
+            },
+            "max" : 60,
+            "min" : -60,
+            "type" : "number"
+          },
+          "luminance" : {
+            "attributes" : {
+              "default" : 0,
+              "required" : true
+            },
+            "max" : 70,
+            "min" : -70,
+            "type" : "number"
+          },
+          "red" : {
+            "attributes" : {
+              "required" : true
+            },
+            "max" : 1,
+            "min" : 0,
+            "type" : "number"
+          },
+          "saturation" : {
+            "attributes" : {
+              "default" : 0,
+              "required" : true
+            },
+            "max" : 100,
+            "min" : -100,
+            "type" : "number"
+          },
+          "spread" : {
+            "attributes" : {
+              "default" : 1,
+              "required" : true
+            },
+            "max" : 2,
+            "min" : 0,
+            "type" : "number"
+          }
+        },
+        "type" : "array"
+      },
+      "type" : "array"
+    },
+    "enabled" : {
+      "attributes" : {
+        "default" : false
+      },
+      "type" : "bool"
+    }
+  },
+  "sharpen" : {
+    "auto" : {
+      "attributes" : {
+        "required" : false
+      },
+      "type" : "bool"
+    },
+    "edges" : {
+      "attributes" : {
+        "default" : 1
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "enabled" : {
+      "attributes" : {
+        "default" : false
+      },
+      "type" : "bool"
+    },
+    "falloff" : {
+      "attributes" : {
+        "default" : 1
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "intensity" : {
+      "attributes" : {
+        "default" : 0
+      },
+      "max" : 2,
+      "min" : 0,
+      "type" : "number"
+    }
+  },
+  "slomo" : {
+    "end" : {
+      "max" : 9223372036854775807,
+      "min" : 0,
+      "type" : "number"
+    },
+    "endScale" : {
+      "max" : 2147483647,
+      "min" : 1,
+      "type" : "number"
+    },
+    "rate" : {
+      "max" : 1,
+      "min" : 0.01,
+      "type" : "number"
+    },
+    "start" : {
+      "max" : 9223372036854775807,
+      "min" : 0,
+      "type" : "number"
+    },
+    "startScale" : {
+      "max" : 2147483647,
+      "min" : 1,
+      "type" : "number"
+    }
+  },
+  "smartBlackAndWhite" : {
+    "auto" : {
+      "attributes" : {
+        "required" : false
+      },
+      "type" : "bool"
+    },
+    "enabled" : {
+      "attributes" : {
+        "default" : false
+      },
+      "type" : "bool"
+    },
+    "grain" : {
+      "attributes" : {
+        "default" : 0
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "hue" : {
+      "attributes" : {
+        "default" : 0
+      },
+      "max" : 1,
+      "min" : -1,
+      "type" : "number"
+    },
+    "neutral" : {
+      "attributes" : {
+        "default" : 0
+      },
+      "max" : 1,
+      "min" : -1,
+      "type" : "number"
+    },
+    "strength" : {
+      "attributes" : {
+        "default" : 0.5
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "tone" : {
+      "attributes" : {
+        "default" : 0
+      },
+      "max" : 1,
+      "min" : -1,
+      "type" : "number"
+    }
+  },
+  "smartColor" : {
+    "auto" : {
+      "attributes" : {
+        "required" : false
+      },
+      "type" : "bool"
+    },
+    "enabled" : {
+      "attributes" : {
+        "default" : false
+      },
+      "type" : "bool"
+    },
+    "inputCast" : {
+      "attributes" : {
+        "default" : 0
+      },
+      "max" : 2,
+      "min" : -1,
+      "type" : "number"
+    },
+    "inputColor" : {
+      "attributes" : {
+        "default" : 0
+      },
+      "max" : 1,
+      "min" : -1,
+      "type" : "number"
+    },
+    "inputContrast" : {
+      "attributes" : {
+        "default" : 0
+      },
+      "max" : 2,
+      "min" : -1,
+      "type" : "number"
+    },
+    "inputSaturation" : {
+      "attributes" : {
+        "default" : 0
+      },
+      "max" : 2,
+      "min" : -1,
+      "type" : "number"
+    },
+    "offsetCast" : {
+      "attributes" : {
+        "default" : 0
+      },
+      "max" : 2,
+      "min" : -1,
+      "type" : "number"
+    },
+    "offsetContrast" : {
+      "attributes" : {
+        "default" : 0
+      },
+      "max" : 2,
+      "min" : -2,
+      "type" : "number"
+    },
+    "offsetSaturation" : {
+      "attributes" : {
+        "default" : 0
+      },
+      "max" : 2,
+      "min" : -2,
+      "type" : "number"
+    },
+    "statistics" : {
+      "attributes" : {
+        "required" : false
+      },
+      "type" : "opaque"
+    }
+  },
+  "smartTone" : {
+    "auto" : {
+      "attributes" : {
+        "required" : false
+      },
+      "type" : "bool"
+    },
+    "enabled" : {
+      "attributes" : {
+        "default" : false
+      },
+      "type" : "bool"
+    },
+    "inputBlack" : {
+      "attributes" : {
+        "default" : 0
+      },
+      "max" : 10,
+      "min" : -10,
+      "type" : "number"
+    },
+    "inputBrightness" : {
+      "attributes" : {
+        "default" : 0
+      },
+      "max" : 10,
+      "min" : -10,
+      "type" : "number"
+    },
+    "inputContrast" : {
+      "attributes" : {
+        "default" : 0
+      },
+      "max" : 10,
+      "min" : -10,
+      "type" : "number"
+    },
+    "inputExposure" : {
+      "attributes" : {
+        "default" : 0
+      },
+      "max" : 10,
+      "min" : -10,
+      "type" : "number"
+    },
+    "inputHighlights" : {
+      "attributes" : {
+        "default" : 0
+      },
+      "max" : 10,
+      "min" : -10,
+      "type" : "number"
+    },
+    "inputImage" : {
+      "attributes" : {
+        "required" : false
+      },
+      "type" : "enum",
+      "values" : [
+        "primary",
+        "spatialOvercapture",
+        "spatialOvercaptureFused"
+      ]
+    },
+    "inputLight" : {
+      "attributes" : {
+        "default" : 0
+      },
+      "max" : 10,
+      "min" : -10,
+      "type" : "number"
+    },
+    "inputLocalLight" : {
+      "attributes" : {
+        "default" : 0,
+        "required" : false
+      },
+      "max" : 10,
+      "min" : -10,
+      "type" : "number"
+    },
+    "inputRawHighlights" : {
+      "attributes" : {
+        "default" : 0
+      },
+      "max" : 10,
+      "min" : -10,
+      "type" : "number"
+    },
+    "inputShadows" : {
+      "attributes" : {
+        "default" : 0
+      },
+      "max" : 10,
+      "min" : -10,
+      "type" : "number"
+    },
+    "offsetBlack" : {
+      "attributes" : {
+        "default" : 0
+      },
+      "max" : 2,
+      "min" : -2,
+      "type" : "number"
+    },
+    "offsetBrightness" : {
+      "attributes" : {
+        "default" : 0
+      },
+      "max" : 2,
+      "min" : -2,
+      "type" : "number"
+    },
+    "offsetContrast" : {
+      "attributes" : {
+        "default" : 0
+      },
+      "max" : 2,
+      "min" : -2,
+      "type" : "number"
+    },
+    "offsetExposure" : {
+      "attributes" : {
+        "default" : 0
+      },
+      "max" : 2,
+      "min" : -2,
+      "type" : "number"
+    },
+    "offsetHighlights" : {
+      "attributes" : {
+        "default" : 0
+      },
+      "max" : 2,
+      "min" : -2,
+      "type" : "number"
+    },
+    "offsetLocalLight" : {
+      "attributes" : {
+        "default" : 0,
+        "required" : false
+      },
+      "max" : 2,
+      "min" : -2,
+      "type" : "number"
+    },
+    "offsetShadows" : {
+      "attributes" : {
+        "default" : 0
+      },
+      "max" : 2,
+      "min" : -2,
+      "type" : "number"
+    },
+    "overcaptureStatistics" : {
+      "attributes" : {
+        "required" : false
+      },
+      "type" : "opaque"
+    },
+    "statistics" : {
+      "attributes" : {
+        "required" : false
+      },
+      "type" : "opaque"
+    }
+  },
+  "sourceSelect" : {
+    "inputImage" : {
+      "type" : "enum",
+      "values" : [
+        "primary",
+        "spatialOvercapture",
+        "spatialOvercaptureFused"
+      ]
+    }
+  },
+  "trim" : {
+    "enabled" : {
+      "attributes" : {
+        "default" : false
+      },
+      "type" : "bool"
+    },
+    "end" : {
+      "max" : 9223372036854775807,
+      "min" : 0,
+      "type" : "number"
+    },
+    "endScale" : {
+      "max" : 2147483647,
+      "min" : 1,
+      "type" : "number"
+    },
+    "start" : {
+      "max" : 9223372036854775807,
+      "min" : 0,
+      "type" : "number"
+    },
+    "startScale" : {
+      "max" : 2147483647,
+      "min" : 1,
+      "type" : "number"
+    }
+  },
+  "videoPosterFrame" : {
+    "scale" : {
+      "attributes" : {
+        "default" : 1
+      },
+      "max" : 2147483647,
+      "min" : 1,
+      "type" : "number"
+    },
+    "time" : {
+      "max" : 9223372036854775807,
+      "min" : 0,
+      "type" : "number"
+    }
+  },
+  "videoReframe" : {
+    "enabled" : {
+      "attributes" : {
+        "default" : false
+      },
+      "type" : "bool"
+    },
+    "keyframes" : {
+      "content" : {
+        "properties" : {
+          "homography" : {
+            "content" : {
+              "attributes" : {
+                "default" : 0
+              },
+              "max" : 9223372036854775807,
+              "min" : -9223372036854775807,
+              "type" : "number"
+            },
+            "type" : "array"
+          },
+          "timeScale" : {
+            "max" : 2147483647,
+            "min" : 1,
+            "type" : "number"
+          },
+          "timeValue" : {
+            "max" : 9223372036854775807,
+            "min" : -9223372036854775807,
+            "type" : "number"
+          }
+        },
+        "type" : "array"
+      },
+      "type" : "array"
+    },
+    "stabCropRect" : {
+      "properties" : {
+        "Height" : {
+          "attributes" : {
+            "default" : 0
+          },
+          "max" : 999999999,
+          "min" : -999999999,
+          "type" : "number"
+        },
+        "Width" : {
+          "attributes" : {
+            "default" : 0
+          },
+          "max" : 999999999,
+          "min" : -999999999,
+          "type" : "number"
+        },
+        "X" : {
+          "attributes" : {
+            "default" : 0
+          },
+          "max" : 999999999,
+          "min" : -999999999,
+          "type" : "number"
+        },
+        "Y" : {
+          "attributes" : {
+            "default" : 0
+          },
+          "max" : 999999999,
+          "min" : -999999999,
+          "type" : "number"
+        }
+      },
+      "type" : "array"
+    }
+  },
+  "vignette" : {
+    "auto" : {
+      "attributes" : {
+        "required" : false
+      },
+      "type" : "bool"
+    },
+    "enabled" : {
+      "attributes" : {
+        "default" : false
+      },
+      "type" : "bool"
+    },
+    "falloff" : {
+      "attributes" : {
+        "default" : 0
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    },
+    "intensity" : {
+      "attributes" : {
+        "default" : 0
+      },
+      "max" : 1,
+      "min" : -1,
+      "type" : "number"
+    },
+    "radius" : {
+      "attributes" : {
+        "default" : 0
+      },
+      "max" : 1,
+      "min" : 0,
+      "type" : "number"
+    }
+  },
+  "whiteBalance" : {
+    "auto" : {
+      "attributes" : {
+        "required" : false
+      },
+      "type" : "bool"
+    },
+    "colorType" : {
+      "attributes" : {
+        "default" : "faceBalance"
+      },
+      "type" : "enum",
+      "values" : [
+        "neutralGray",
+        "faceBalance",
+        "tempTint",
+        "warmTint"
+      ]
+    },
+    "enabled" : {
+      "attributes" : {
+        "default" : false
+      },
+      "type" : "bool"
+    },
+    "faceI" : {
+      "attributes" : {
+        "required" : false
+      },
+      "max" : 3,
+      "min" : -3,
+      "type" : "number"
+    },
+    "faceQ" : {
+      "attributes" : {
+        "required" : false
+      },
+      "max" : 2,
+      "min" : -2,
+      "type" : "number"
+    },
+    "faceStrength" : {
+      "attributes" : {
+        "required" : false
+      },
+      "max" : 3,
+      "min" : -3,
+      "type" : "number"
+    },
+    "faceWarmth" : {
+      "attributes" : {
+        "required" : false
+      },
+      "max" : 3,
+      "min" : -3,
+      "type" : "number"
+    },
+    "grayI" : {
+      "attributes" : {
+        "required" : false
+      },
+      "max" : 3,
+      "min" : -3,
+      "type" : "number"
+    },
+    "grayQ" : {
+      "attributes" : {
+        "required" : false
+      },
+      "max" : 3,
+      "min" : -3,
+      "type" : "number"
+    },
+    "grayStrength" : {
+      "attributes" : {
+        "default" : 1,
+        "required" : false
+      },
+      "max" : 3,
+      "min" : -3,
+      "type" : "number"
+    },
+    "grayWarmth" : {
+      "attributes" : {
+        "required" : false
+      },
+      "max" : 3,
+      "min" : -3,
+      "type" : "number"
+    },
+    "grayY" : {
+      "attributes" : {
+        "required" : false
+      },
+      "max" : 3,
+      "min" : -3,
+      "type" : "number"
+    },
+    "temperature" : {
+      "attributes" : {
+        "default" : 5000,
+        "identity" : 5000,
+        "required" : false
+      },
+      "max" : 32000,
+      "min" : 1000,
+      "type" : "number"
+    },
+    "tint" : {
+      "attributes" : {
+        "default" : 0,
+        "required" : false
+      },
+      "max" : 150,
+      "min" : -150,
+      "type" : "number"
+    },
+    "warmFace" : {
+      "attributes" : {
+        "default" : false,
+        "required" : false
+      },
+      "type" : "bool"
+    },
+    "warmTemp" : {
+      "attributes" : {
+        "default" : 0,
+        "required" : false
+      },
+      "max" : 2,
+      "min" : -2,
+      "type" : "number"
+    },
+    "warmTint" : {
+      "attributes" : {
+        "default" : 0,
+        "required" : false
+      },
+      "max" : 2,
+      "min" : -2,
+      "type" : "number"
+    }
+  }
+}

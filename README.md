@@ -6,11 +6,40 @@ Experimenting with PhotoKit to load non-system photo libraries to decode adjustm
 photohack path/to/some.photoslibrary UUID...
 ```
 
+## Useful Framework Headers
+
+### PhotoKit
+
+* <https://github.com/w0lfschild/macOS_headers/blob/master/macOS/Frameworks/Photos/21/PHPhotoLibrary.h>
+* <https://github.com/w0lfschild/macOS_headers/blob/master/macOS/Frameworks/Photos/21/PHAsset.h>
+
+### NeutrinoCore
+
+* <https://github.com/w0lfschild/macOS_headers/blob/master/macOS/PrivateFrameworks/NeutrinoCore/21/NUAdjustment.h>
+* <https://github.com/w0lfschild/macOS_headers/blob/master/macOS/PrivateFrameworks/NeutrinoCore/21/NUGenericAdjustment.h>
+* <https://github.com/w0lfschild/macOS_headers/blob/master/macOS/PrivateFrameworks/NeutrinoCore/21/NUAdjustmentSchema.h>
+* <https://github.com/w0lfschild/macOS_headers/blob/master/macOS/PrivateFrameworks/NeutrinoCore/21/NUAdjustmentSerialization.h>
+
+* <https://github.com/w0lfschild/macOS_headers/blob/master/macOS/PrivateFrameworks/NeutrinoCore/21/NUComposition.h>
+* <https://github.com/w0lfschild/macOS_headers/blob/master/macOS/PrivateFrameworks/NeutrinoCore/21/NUGenericComposition.h>
+* <https://github.com/w0lfschild/macOS_headers/blob/master/macOS/PrivateFrameworks/NeutrinoCore/21/NUCompositionSchema.h>
+
+* <https://github.com/w0lfschild/macOS_headers/blob/master/macOS/PrivateFrameworks/NeutrinoCore/21/NUSetting.h>
+* <https://github.com/w0lfschild/macOS_headers/blob/master/macOS/PrivateFrameworks/NeutrinoCore/21/NUBoolSetting.h>
+* <https://github.com/w0lfschild/macOS_headers/blob/master/macOS/PrivateFrameworks/NeutrinoCore/21/NUEnumSetting.h>
+* <https://github.com/w0lfschild/macOS_headers/blob/master/macOS/PrivateFrameworks/NeutrinoCore/21/NUNumberSetting.h>
+* <https://github.com/w0lfschild/macOS_headers/blob/master/macOS/PrivateFrameworks/NeutrinoCore/21/NUOpaqueSetting.h>
+* <https://github.com/w0lfschild/macOS_headers/blob/master/macOS/PrivateFrameworks/NeutrinoCore/21/NUArraySetting.h>
+* <https://github.com/w0lfschild/macOS_headers/blob/master/macOS/PrivateFrameworks/NeutrinoCore/21/NUCompoundSetting.h>
+
+TODO: May be able to use `NUAdjustmentSerialization` directly to load and adjustment plist file from disk and bypass
+the permissions and other hacks for PhotoKit.
+
+
 ## Adjustments Schema
 
-See the debugging section below for a bit more details
-
-TODO: JSON-ify this so it's a bit easier to read
+See the debugging section below for a more detail or [`schema-adjustments.json`](schema-adjustments.json) for
+a JSON mapping of the following.
 
 ```
 effect3D = {
@@ -277,27 +306,6 @@ smartTone = {
 }
 
 ```
-
-## Useful Framework Headers
-
-### PhotoKit
-
-* <https://github.com/w0lfschild/macOS_headers/blob/master/macOS/Frameworks/Photos/21/PHPhotoLibrary.h>
-* <https://github.com/w0lfschild/macOS_headers/blob/master/macOS/Frameworks/Photos/21/PHAsset.h>
-
-### NeutrinoCore
-
-* <https://github.com/w0lfschild/macOS_headers/blob/master/macOS/PrivateFrameworks/NeutrinoCore/21/NUAdjustment.h>
-* <https://github.com/w0lfschild/macOS_headers/blob/master/macOS/PrivateFrameworks/NeutrinoCore/21/NUGenericAdjustment.h>
-* <https://github.com/w0lfschild/macOS_headers/blob/master/macOS/PrivateFrameworks/NeutrinoCore/21/NUAdjustmentSchema.h>
-* <https://github.com/w0lfschild/macOS_headers/blob/master/macOS/PrivateFrameworks/NeutrinoCore/21/NUAdjustmentSerialization.h>
-* <https://github.com/w0lfschild/macOS_headers/blob/master/macOS/PrivateFrameworks/NeutrinoCore/21/NUComposition.h>
-* <https://github.com/w0lfschild/macOS_headers/blob/master/macOS/PrivateFrameworks/NeutrinoCore/21/NUGenericComposition.h>
-* <https://github.com/w0lfschild/macOS_headers/blob/master/macOS/PrivateFrameworks/NeutrinoCore/21/NUCompositionSchema.h>
-
-TODO: May be able to use `NUAdjustmentSerialization` directly to load and adjustment plist file from disk and bypass
-the permissions and other hacks for PhotoKit.
-
 
 ## Debugging
 
