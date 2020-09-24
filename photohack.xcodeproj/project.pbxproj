@@ -18,6 +18,7 @@
 		BE443220251AF4E600D616A3 /* photohack-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "photohack-Bridging-Header.h"; sourceTree = "<group>"; };
 		BE443221251AF4E600D616A3 /* PhotoProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoProxy.m; sourceTree = "<group>"; };
 		BE443223251AF51100D616A3 /* PhotoProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoProxy.h; sourceTree = "<group>"; };
+		BECBC58D251D55C9009DF972 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +35,7 @@
 		BE44320B251AF40C00D616A3 = {
 			isa = PBXGroup;
 			children = (
+				BECBC58D251D55C9009DF972 /* README.md */,
 				BE443216251AF40C00D616A3 /* photohack */,
 				BE443215251AF40C00D616A3 /* Products */,
 			);

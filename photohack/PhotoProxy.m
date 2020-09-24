@@ -5,7 +5,9 @@
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wundeclared-selector"
 
-// Convert the composition, adjustment and settings schema to a plain dictionaries.
+#define dump(fmt, ...) CFShow((__bridge CFStringRef)[NSString stringWithFormat:fmt, ##__VA_ARGS__])
+
+// Convert the composition, adjustment, and settings schemas to plain dictionaries.
 NSDictionary* resolveSchema(id composition);
 NSDictionary* resolveSetting(id setting);
 
@@ -28,45 +30,44 @@ NSDictionary* resolveSetting(id setting);
         ([PHPhotoLibrary alloc], @selector(initWithPhotoLibraryURL:type:), [NSURL fileURLWithPath:path], 0);
     
     // HACK: This seems to work for detecting failures to load the library
-    // TODO: Try the `uuid` property
-    if (nil == [proxy->lib performSelector:@selector(albumRootFolderObjectID)]) {
+    if (nil == [proxy->lib performSelector:@selector(uuid)]) {
         return nil;
     }
     
     return proxy;
 }
 
-#define dump(fmt, ...) CFShow((__bridge CFStringRef)[NSString stringWithFormat:fmt, ##__VA_ARGS__])
-
-- (void)dumpAdjustments:(NSArray*)uuids {
+- (NSDictionary*)fetchAdjustments:(NSArray*)uuids {
     NSArray *assets = ((id (*)(id, SEL, id, id))objc_msgSend)(self->lib, @selector(fetchPHObjectsForUUIDs:entityName:), uuids, @"Asset");
-    
+
+    NSMutableDictionary* results = [NSMutableDictionary dictionaryWithCapacity:uuids.count];
+
     [assets enumerateObjectsUsingBlock:^(PHAsset *asset, NSUInteger idx, BOOL *stop) {
         // id url = [asset performSelector:@selector(mainFileURL)];
         [asset performSelector:@selector(fetchPropertySetsIfNeeded)];
+        
+        NSMutableDictionary* adjustments = [NSMutableDictionary dictionary];
+        results[[uuids[idx] UUIDString]] = adjustments;
 
         NSDictionary *metadata = [asset performSelector:@selector(adjustmentsDebugMetadata)];
-        dump(@"adjustments: %@", uuids[idx]);
         if (metadata == nil) {
-            dump(@"  <none>");
             return;
         }
-
         id composition = metadata[@"composition"];
         if (composition == nil) {
-            dump(@"  <no-composition>");
             return;
         }
+        [[composition contents] enumerateKeysAndObjectsUsingBlock:^(NSString *key, id adjustment, BOOL *stop) {
+            adjustments[key] = [adjustment settings];
+        }];
 
         // To dump the full schema for all the adjustments
         //NSError* err;
         //NSData* json = [NSJSONSerialization dataWithJSONObject:resolveSchema(composition) options:NSJSONWritingPrettyPrinted|NSJSONWritingSortedKeys error:&err];
         //dump([[NSString alloc] initWithData:json encoding:NSUTF8StringEncoding]);
-
-        // TODO Dictionary-ify this as well for a JSON representation
-        NSDictionary *adjustments = [composition contents];
-        dump(@"  %@", adjustments);
     }];
+    
+    return [results copy];
 }
 
 @end

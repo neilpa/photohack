@@ -1,10 +1,44 @@
 # photohack
 
-Experimenting with PhotoKit to load non-system photo libraries to decode adjustment data and other useful info.
+Experimenting with PhotoKit to load non-system photo libraries to decode adjustment data (i.e. edited photos) and potentially other useful info.
 
 ```sh
-photohack path/to/some.photoslibrary UUID...
+photohack path/to/some.photoslibrary adjustments UUID...
 ```
+
+For a given set of UUIDs this will print a JSON object with the provided UUIDs as keys and values as adjustment objects, e.g
+
+```json
+{
+  "34B8483F-8A35-4FEB-98A3-84DC376F0C9F" : {
+    "raw" : {
+      "enabled" : true,
+      "auto" : false,
+      "inputDecoderVersion" : "8"
+    },
+    "cropStraighten" : {
+      "angle" : -0,
+      "height" : 988,
+      "enabled" : true,
+      "constraintWidth" : 0,
+      "width" : 1482,
+      "xOrigin" : 2342,
+      "yOrigin" : 1127,
+      "constraintHeight" : 0,
+      "auto" : false
+    },
+    "orientation" : {
+      "value" : 1
+    }
+  },
+  "E1C9A934-260F-4211-95AD-14827A82ACB4" : {
+
+  }
+}
+```
+
+Note, the empty object for the asset w/out any ajustments.
+
 
 ## Useful Framework Headers
 

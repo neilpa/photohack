@@ -3,7 +3,8 @@ import Foundation
 import Photos
 
 if CommandLine.arguments.count < 3 {
-    print("usage: photoproxy <*.photoslibrary> <UUID>...")
+    print("usage: photoproxy <*.photoslibrary> <cmd> [<arg>...]")
+    print("\t<cmd> is one of `adjustments`, ...")
     exit(1)
 }
 
@@ -38,7 +39,6 @@ PHPhotoLibrary.requestAuthorization({(status:PHAuthorizationStatus) in
 })
 sem.wait();
 
-//print(PhotoProxy.entityToClass() as AnyObject)
 
 let dbPath = CommandLine.arguments[1]
 let proxy = PhotoProxy.fromPath(dbPath)
@@ -47,5 +47,14 @@ if proxy == nil {
     exit(2)
 }
 
-let uuids = CommandLine.arguments.dropFirst(2).map { UUID(uuidString: $0)! };
-proxy!.dumpAdjustments(uuids)
+let cmd = CommandLine.arguments[2]
+switch cmd {
+case "adjustments":
+    let uuids = CommandLine.arguments.dropFirst(3).map { UUID(uuidString: $0)! }
+    
+    let adjustments = proxy!.fetchAdjustments(uuids)
+    let json = try JSONSerialization.data(withJSONObject: adjustments!, options: .prettyPrinted)
+    print(String(data: json, encoding: .utf8)!)
+default:
+    print("Invalid command: \(cmd)")
+}

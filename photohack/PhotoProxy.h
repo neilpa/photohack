@@ -15,7 +15,7 @@
 
 // Open the *.photoslibrary package at the given path
 + (PhotoProxy*) fromPath:(NSString*)path;
-// Extract adjustment dictionaries for a set of UUIDs in the photos library=
-- (void) dumpAdjustments:(NSArray*)uuids;
+// Returns a mapping of provided UUID values to adjustment dictionaries.
+- (NSDictionary*) fetchAdjustments:(NSArray*)uuids;
 
 @end
