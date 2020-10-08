@@ -252,7 +252,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MARKETING_VERSION = 0.0.3;
+				MARKETING_VERSION = 0.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = me.neilpa.photohack;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "photohack/photohack-Bridging-Header.h";
@@ -273,7 +273,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MARKETING_VERSION = 0.0.3;
+				MARKETING_VERSION = 0.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = me.neilpa.photohack;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "photohack/photohack-Bridging-Header.h";

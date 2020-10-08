@@ -1,5 +1,9 @@
 #import "PhotoProxy.h"
+
 #import "objc/message.h"
+
+#import "Metal/MTLDevice.h"
+#import "AppKit/NSImage.h"
 
 // Avoid all the warnings for dyanmically calling private methods
 #pragma clang diagnostic push
@@ -20,7 +24,7 @@ NSDictionary* resolveSetting(id setting);
     return [PHPhotoLibrary.self performSelector:@selector(PHObjectClassesByEntityName)];
 }
 
-+ (PhotoProxy*)fromPath:(NSString*)path {
++ (PhotoProxy*) fromPath:(NSString*)path {
     PhotoProxy* proxy = [[PhotoProxy alloc] init];
     proxy->path = path;
 
@@ -37,37 +41,78 @@ NSDictionary* resolveSetting(id setting);
     return proxy;
 }
 
-- (NSDictionary*)fetchAdjustments:(NSArray*)uuids {
-    NSArray *assets = ((id (*)(id, SEL, id, id))objc_msgSend)(self->lib, @selector(fetchPHObjectsForUUIDs:entityName:), uuids, @"Asset");
+- (NSArray*) fetchAssets:(NSArray*)uuids {
+    return ((NSArray* (*)(id, SEL, id, id))objc_msgSend)(self->lib, @selector(fetchPHObjectsForUUIDs:entityName:), uuids, @"Asset");
+}
 
+- (NSDictionary*) adjustments:(PHAsset*)asset {
+    // id url = [asset performSelector:@selector(mainFileURL)];
+    [asset performSelector:@selector(fetchPropertySetsIfNeeded)];
+
+    NSDictionary *metadata = [asset performSelector:@selector(adjustmentsDebugMetadata)];
+    if (metadata == nil) {
+        return [NSDictionary dictionary];
+    }
+    id composition = metadata[@"composition"];
+    if (composition == nil) {
+        return [NSDictionary dictionary];
+    }
+
+    NSMutableDictionary* adjustments = [NSMutableDictionary dictionary];
+    [[composition contents] enumerateKeysAndObjectsUsingBlock:^(NSString *key, id adjustment, BOOL *stop) {
+        adjustments[key] = [adjustment settings];
+    }];
+    return [adjustments copy];
+}
+
+- (NSDictionary*) fetchAdjustments:(NSArray*)uuids {
+    NSArray *assets = [self fetchAssets:uuids];
     NSMutableDictionary* results = [NSMutableDictionary dictionaryWithCapacity:uuids.count];
 
     [assets enumerateObjectsUsingBlock:^(PHAsset *asset, NSUInteger idx, BOOL *stop) {
-        // id url = [asset performSelector:@selector(mainFileURL)];
-        [asset performSelector:@selector(fetchPropertySetsIfNeeded)];
-        
-        NSMutableDictionary* adjustments = [NSMutableDictionary dictionary];
-        results[[uuids[idx] UUIDString]] = adjustments;
-
-        NSDictionary *metadata = [asset performSelector:@selector(adjustmentsDebugMetadata)];
-        if (metadata == nil) {
-            return;
-        }
-        id composition = metadata[@"composition"];
-        if (composition == nil) {
-            return;
-        }
-        [[composition contents] enumerateKeysAndObjectsUsingBlock:^(NSString *key, id adjustment, BOOL *stop) {
-            adjustments[key] = [adjustment settings];
-        }];
-
-        // To dump the full schema for all the adjustments
-        //NSError* err;
-        //NSData* json = [NSJSONSerialization dataWithJSONObject:resolveSchema(composition) options:NSJSONWritingPrettyPrinted|NSJSONWritingSortedKeys error:&err];
-        //dump([[NSString alloc] initWithData:json encoding:NSUTF8StringEncoding]);
+        results[[uuids[idx] UUIDString]] = [self adjustments:asset];
     }];
-    
     return [results copy];
+}
+
+- (void) exportJPEGs:(NSArray*)uuids toDir:(NSString*)path {
+    // TODO: Surprisingly works with the default image manager
+    //PHImageManager *im = [[PHImageManager alloc] init];
+    //Ivar ivarLib = class_getInstanceVariable(PHImageManager.class, "_photoLibrary");
+    //object_setIvar(im, ivarLib, self->lib);
+    PHImageManager *im = PHImageManager.defaultManager;
+
+    PHImageRequestOptions *opts = [[PHImageRequestOptions alloc] init];
+    opts.version = PHImageRequestOptionsVersionCurrent;
+    opts.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
+    opts.synchronous = YES;
+
+    // Reuse the context: https://stackoverflow.com/a/59334308
+    CIContext *ctx = [CIContext contextWithMTLDevice:MTLCreateSystemDefaultDevice() options:@{
+        kCIContextWorkingColorSpace: (__bridge NSColorSpace*)CGColorSpaceCreateWithName(kCGColorSpaceExtendedSRGB),
+        kCIContextWorkingFormat: @(kCIFormatRGBAh),
+    }];
+
+    CGColorSpaceRef jpegColorSpace = CGColorSpaceCreateWithName(kCGColorSpaceSRGB);
+    NSDictionary *jpegOpts = @{(__bridge NSString*)kCGImageDestinationLossyCompressionQuality: @1.0};
+
+    NSArray *assets = [self fetchAssets:uuids];
+    [assets enumerateObjectsUsingBlock:^(PHAsset *asset, NSUInteger idx, BOOL *stop) {
+        [im requestImageForAsset:asset targetSize:PHImageManagerMaximumSize contentMode:PHImageContentModeDefault options:opts resultHandler:^(NSImage *result, NSDictionary *info) {
+
+            id rep = [result representations][0]; // TODO: Always NSCGImageSnapshotRep?
+            CIImage *img = [CIImage imageWithCGImage:(CGImageRef)[rep image]];
+
+            NSString *jpg = [NSString stringWithFormat:@"%@/%@.jpg", path, [uuids[idx] UUIDString]];
+            NSURL *url = [NSURL fileURLWithPath:jpg];
+
+            NSError *err = nil;
+            [ctx writeJPEGRepresentationOfImage:img toURL:url colorSpace:jpegColorSpace options:jpegOpts error:&err];
+            if (err != nil) {
+                NSLog(@"Failed to write JPEG: %@", err); // TODO: Bubble up?
+            }
+        }];
+    }];
 }
 
 @end

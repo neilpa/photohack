@@ -4,7 +4,7 @@ import Photos
 
 if CommandLine.arguments.count < 3 {
     print("usage: photoproxy <*.photoslibrary> <cmd> [<arg>...]")
-    print("\t<cmd> is one of `adjustments`, ...")
+    print("\t<cmd> is one of `adjustments|jpegs`")
     exit(1)
 }
 
@@ -49,12 +49,19 @@ if proxy == nil {
 
 let cmd = CommandLine.arguments[2]
 switch cmd {
-case "adjustments":
+
+case "adjustments": // <UUID>...
     let uuids = CommandLine.arguments.dropFirst(3).map { UUID(uuidString: $0)! }
     
     let adjustments = proxy!.fetchAdjustments(uuids)
     let json = try JSONSerialization.data(withJSONObject: adjustments!, options: .prettyPrinted)
     print(String(data: json, encoding: .utf8)!)
+
+case "jpegs": // <DIR> <UUID>...
+    let dir = CommandLine.arguments[3];
+    let uuids = CommandLine.arguments.dropFirst(4).map { UUID(uuidString: $0)! }
+    proxy!.exportJPEGs(uuids, toDir: dir)
+
 default:
     print("Invalid command: \(cmd)")
 }

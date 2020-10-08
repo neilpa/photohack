@@ -1,9 +1,19 @@
 # photohack
 
-Experimenting with PhotoKit to load non-system photo libraries to decode adjustment data (i.e. edited photos) and potentially other useful info.
+Experimenting with PhotoKit to load non-system photo libraries and export edited JPEGs, decode raw adjustment dictionaries, etc. See [`osxphotos`](github.com/rhettbull/osxphotos) for how to lookup photo UUIDs from a given `*.photolibrary`.
+
+## Export JPEGs
 
 ```sh
-photohack path/to/some.photoslibrary adjustments UUID...
+photohack path/to/some.photoslibrary jpegs path/to/export <UUID>...
+```
+
+Export a JPEG file for each listed UUID in a given directory. Each file will by named `<UUID>.jpg`.
+
+## Adjustment Data
+
+```sh
+photohack path/to/some.photoslibrary adjustments <UUID>...
 ```
 
 For a given set of UUIDs this will print a JSON object with the provided UUIDs as keys and values as adjustment objects, e.g
@@ -39,15 +49,16 @@ For a given set of UUIDs this will print a JSON object with the provided UUIDs a
 
 Note, the empty object for the asset w/out any ajustments.
 
+## Miscellaneous Notes
 
-## Useful Framework Headers
+### Framework Headers
 
-### PhotoKit
+#### PhotoKit
 
 * <https://github.com/w0lfschild/macOS_headers/blob/master/macOS/Frameworks/Photos/21/PHPhotoLibrary.h>
 * <https://github.com/w0lfschild/macOS_headers/blob/master/macOS/Frameworks/Photos/21/PHAsset.h>
 
-### NeutrinoCore
+#### NeutrinoCore
 
 * <https://github.com/w0lfschild/macOS_headers/blob/master/macOS/PrivateFrameworks/NeutrinoCore/21/NUAdjustment.h>
 * <https://github.com/w0lfschild/macOS_headers/blob/master/macOS/PrivateFrameworks/NeutrinoCore/21/NUGenericAdjustment.h>
@@ -66,11 +77,11 @@ Note, the empty object for the asset w/out any ajustments.
 * <https://github.com/w0lfschild/macOS_headers/blob/master/macOS/PrivateFrameworks/NeutrinoCore/21/NUArraySetting.h>
 * <https://github.com/w0lfschild/macOS_headers/blob/master/macOS/PrivateFrameworks/NeutrinoCore/21/NUCompoundSetting.h>
 
-TODO: May be able to use `NUAdjustmentSerialization` directly to load and adjustment plist file from disk and bypass
+**TODO:** May be able to use `NUAdjustmentSerialization` directly to load an adjustment plist file from disk and bypass
 the permissions and other hacks for PhotoKit.
 
 
-## Adjustments Schema
+### Adjustments Schema
 
 See the debugging section below for a more detail or [`schema-adjustments.json`](schema-adjustments.json) for
 a JSON mapping of the following.
@@ -341,11 +352,11 @@ smartTone = {
 
 ```
 
-## Debugging
+### Debugging
 
 Raw notes/output from poking at things in the debugger
 
-### PHPhotoLibrary
+#### PHPhotoLibrary
 
 ```
 (lldb) po [PHPhotoLibrary.self performSelector:@selector(PHObjectClassesByEntityName)]
@@ -376,7 +387,7 @@ Raw notes/output from poking at things in the debugger
 }
 ```
 
-### Adjustments
+#### Adjustments
 
 Notes:
 * `val` is the "composition" entry from the `-adjustmentsDebugMetadata` dictionary for a `PHAsset`.
