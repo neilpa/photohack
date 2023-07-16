@@ -1,6 +1,6 @@
 # photohack
 
-Experimenting with PhotoKit to load non-system photo libraries and export edited JPEGs, decode raw adjustment dictionaries, etc. See [`osxphotos`](github.com/rhettbull/osxphotos) for how to lookup photo UUIDs from a given `*.photolibrary`.
+Experimenting with PhotoKit to load non-system photo libraries and export edited JPEGs, decode raw adjustment dictionaries, etc. See [`osxphotos`](https://github.com/rhettbull/osxphotos) for how to lookup photo UUIDs from a given `*.photolibrary`.
 
 ## Export JPEGs
 
